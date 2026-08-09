@@ -1,0 +1,18 @@
+import torch.nn as nn
+from torchvision.models import resnet18
+
+def get_model(architecture, num_classes):
+    
+    model = None
+    
+    if architecture == "resnet18":
+        model = resnet18(weights=None)
+    else:
+        model = resnet18(weights=None)
+
+    model.fc = nn.Linear(
+        model.fc.in_features,
+        num_classes
+    )
+
+    return model
