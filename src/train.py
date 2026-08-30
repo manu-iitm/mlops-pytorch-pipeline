@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 from pathlib import Path
 import torch
 import torch.nn as nn
@@ -72,7 +73,7 @@ def evaluate(
 
 
 def main():
-    config_path = Path("/app/configs/training_config.yaml")
+    config_path = Path(os.getenv("TRAIN_CONFIG_PATH", "/app/configs/training_config.yaml"))
     
     if not config_path.exists():
         config_path = Path("configs/training_config.yaml")
