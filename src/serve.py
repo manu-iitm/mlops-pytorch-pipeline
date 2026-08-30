@@ -1,5 +1,5 @@
 from io import BytesIO
-
+import os
 import torch
 
 from PIL import Image
@@ -9,7 +9,10 @@ from torchvision import transforms
 from src.model import get_model
 
 
-CHECKPOINT_PATH = "./checkpoints/model.pt"
+CHECKPOINT_PATH = os.getenv(
+    "MODEL_PATH",
+    "./checkpoints/model.pt"
+)
 
 CIFAR10_CLASSES = [
     "airplane",
