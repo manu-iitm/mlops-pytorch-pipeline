@@ -25,7 +25,7 @@ def get_transforms(train: bool = True) -> transforms.Compose:
 def get_dataloaders(
     data_dir: str,
     batch_size: int = 64,
-    num_workers: int = 2,
+    num_workers: int = 0,
     ) -> tuple[DataLoader, DataLoader]:
     
     train_dataset = datasets.CIFAR10(
